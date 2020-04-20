@@ -36,5 +36,5 @@ jobs:
         customCommandArgs: true
         covAnalyzeArgs: '--strip-path $(Build.Repository.LocalPath) --webapp-security --all'
         covCommitArgs: '--scm git'
-        covBuildArgs: --config $(Build.SourcesDirectory)/cov/cov-config.xml
+        covBuildArgs: --config $(Build.SourcesDirectory)/cov/taskmanager-cov-config.xml
       displayName: 'Scan Task Manager Solution'
