@@ -30,7 +30,7 @@ jobs:
       inputs:
         coverityService: 'coverity.mgmt.local'
         projectName: 'taskmanager'
-        streamName: 'source-document-coordinator'
+        streamName: 'taskmanager-master'
         coverityBuildDirectory: '$(Build.Repository.LocalPath)'
         buildCommand: 'dotnet build $(Build.SourcesDirectory)\\src\\TaskManager.sln'
         customCommandArgs: true
