@@ -1,0 +1,40 @@
+trigger: none
+pr: none
+
+schedules:
+- cron: "0 0,6,12,18 * * *"
+  displayName: Coverity Taskmanager Run
+  branches:
+    include:
+    - master
+  always: true
+
+jobs:
+- job: SAST
+  pool: "NautilusBuild"
+    
+  steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core 3.1.x SDK'
+      inputs:
+        packageType: sdk
+        version: 3.1.x
+        installationPath: $(Agent.ToolsDirectory)\\dotnet
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'restore'
+        projects: '$(Build.SourcesDirectory)\\src\\TaskManager.sln'
+        feedsToUse: 'select'
+      displayName: 'dotnet restore taskmanager'
+    - task: synopsys-coverity@1
+      inputs:
+        coverityService: 'coverity.mgmt.local'
+        projectName: 'taskmanager'
+        streamName: 'source-document-coordinator'
+        coverityBuildDirectory: '$(Build.Repository.LocalPath)'
+        buildCommand: 'dotnet build $(Build.SourcesDirectory)\\src\\TaskManager.sln'
+        customCommandArgs: true
+        covAnalyzeArgs: '--strip-path $(Build.Repository.LocalPath) --webapp-security --all'
+        covCommitArgs: '--scm git'
+        covBuildArgs: --config $(Build.SourcesDirectory)/cov/cov-config.xml
+      displayName: 'Scan Task Manager Solution'
