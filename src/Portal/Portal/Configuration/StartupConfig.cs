@@ -9,5 +9,7 @@ namespace Portal.Configuration
         public string LocalDbServer { get; set; }
         public string TenantId { get; set; }
         public string AzureAdClientId { get; set; }
+        public Uri LocalDevLandingPageHttpsUrl { get; set; }
+        public Uri LandingPageUrl { get; set; }
     }
 }

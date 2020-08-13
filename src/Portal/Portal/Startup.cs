@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using Common.Factories.DocumentStatusFactory;
 using Common.Factories.Interfaces;
@@ -152,6 +153,13 @@ namespace Portal
             {
                 options.Authority = $"https://login.microsoftonline.com/{startupConfig.TenantId}/v2.0/";
                 options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified for development - TODO)
+                options.Events.OnRedirectToIdentityProvider = async context =>
+                {
+                    context.ProtocolMessage.RedirectUri = isLocalDevelopment
+                        ? $"{new Uri(startupConfig.LocalDevLandingPageHttpsUrl, "signin-oidc")}"
+                        : $"{new Uri(startupConfig.LandingPageUrl, "signin-oidc")}";
+                    await Task.FromResult(0);
+                };
             });
 
             services.AddScoped<IDocumentStatusFactory, DocumentStatusFactory>();
