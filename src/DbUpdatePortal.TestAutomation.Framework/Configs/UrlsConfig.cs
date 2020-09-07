@@ -8,6 +8,7 @@ namespace DbUpdatePortal.TestAutomation.Framework.Configs
         public Uri DbUpdateNewTaskPageUrl { get; set; }
         public Uri DbUpdateWorkflowPageUrl { get; set; }
         public Uri DbUpdateHistoricalTasksPageUrl { get; set; }
+        public Uri DbUpdateWorkFlowPageUrl { get; set; }
 
-    }
+}
 }
