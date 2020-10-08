@@ -1,0 +1,5 @@
+2020-10-08 15:56:52.730 +01:00 [INF] Now listening on: https://localhost:44315
+2020-10-08 15:56:52.768 +01:00 [INF] Now listening on: http://localhost:1660
+2020-10-08 15:56:52.770 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-10-08 15:56:52.772 +01:00 [INF] Hosting environment: Development
+2020-10-08 15:56:52.774 +01:00 [INF] Content root path: c:\github\tm\src\EventServices\EventService

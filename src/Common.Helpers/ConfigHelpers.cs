@@ -4,7 +4,8 @@ namespace Common.Helpers
 {
     public static class ConfigHelpers
     {
-        private static string EnvironmentName => Environment.GetEnvironmentVariable("ENVIRONMENT") ?? "";
+        private static string EnvironmentName => "AzureDev";
+        // Environment.GetEnvironmentVariable("ENVIRONMENT") ?? "";
 
         public static bool IsLocalDevelopment => EnvironmentName.Equals("LocalDevelopment", StringComparison.OrdinalIgnoreCase);
 
