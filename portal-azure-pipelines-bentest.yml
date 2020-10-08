@@ -28,11 +28,11 @@ stages:
         inputs:
           versionSpec: '12.x'
 
-      - script: npm install -g alex
+      - script: npm install
 
       - task: Npm@1
         inputs:
           command: custom
-          customCommand: run alex
+          customCommand: run alexlint
         displayName: alex.js linter
 

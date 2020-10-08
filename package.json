@@ -1,0 +1,10 @@
+{
+    "name": "tm",
+    "version": "1.0.0",
+    "scripts": {
+      "alexlint": "alex"
+    },
+    "dependencies": {
+      "alex": "^9.0.1"
+    }
+  }
