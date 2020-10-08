@@ -33,6 +33,6 @@ stages:
       - task: Npm@1
         inputs:
           command: custom
-          customCommand: alex
+          customCommand: run alex
         displayName: alex.js linter
 
