@@ -54,7 +54,8 @@ namespace Portal.HostedServices
                         @"select " +
                         "[ProcessId]" +
                         "from [dbo].[WorkflowInstance]" +
-                        "where [ActivityName] = 'Review'";
+                        "where [ActivityName] = 'Review'" +
+                        "and [Status] = 'Started'";
 
                     cmd.Notification = null;
                     SqlDependency depBookmakers = new SqlDependency(cmd);
