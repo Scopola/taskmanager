@@ -30,5 +30,9 @@ stages:
 
       - script: npm install -g alex
 
-      - script: alex
+      - task: Npm@1
+        inputs:
+          command: custom
+          customCommand: alex
+        displayName: alex.js linter
 
