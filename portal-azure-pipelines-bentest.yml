@@ -28,4 +28,7 @@ stages:
         inputs:
           versionSpec: '12.x'
 
-      - script: npm install
+      - script: npm install -g alex
+
+      - script: alex
+
