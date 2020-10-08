@@ -33,6 +33,7 @@ stages:
       - task: Npm@1
         inputs:
           command: custom
-          customCommand: run alexlint
-        displayName: alex.js linter
+          customCommand: 'run alexlint'
+        displayName: Run alex.js linter
+        continueOnError: true
 
