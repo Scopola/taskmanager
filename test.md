@@ -1,0 +1,1 @@
+Switch to master branch from slave then add them to the whitelist.
